@@ -1,7 +1,23 @@
-const http = require('http')
+const express = require('express')
+const mongoose = require('mongoose')
+const userRoutes = require('./Controllers/user_controller')
+const commentRoutes = require('./Controllers/comment_controller')
+require('dotenv').config()
 
-const PORT = process.env.PORT
+const app = express()
 
-const server = http.createServer()
+// middleware
+app.use(express.json())
 
-server.listen(PORT)
+// routes
+app.use('/user', userRoutes)
+app.use('/comment', commentRoutes)
+
+// db connection
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => console.log('DB connected'))
+    .catch(err => console.error(err));
+
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => console.log(`listening on port ${PORT}`))
