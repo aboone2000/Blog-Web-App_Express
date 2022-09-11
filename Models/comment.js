@@ -1,25 +1,10 @@
 const mongoose = require('mongoose')
 
-const commentSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        default: 'Anonymous'
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    pic: {
-        type: String, 
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    }
-}, {
-    timestamps: true
+let commentSchema = new mongoose.Schema({
+    author: { type: String, default: 'Anonymous' },
+    rant: { type: Boolean, default: false },
+    stars: { type: Number, required: true },
+    content: { type: String, default: '' }
 })
-
+  
 module.exports = mongoose.model('Comment', commentSchema)

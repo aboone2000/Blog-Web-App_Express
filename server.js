@@ -1,8 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const userRoutes = require('./Controllers/user_controller')
-const commentRoutes = require('./Controllers/comment_controller')
-const blogRoutes =
+
 require('dotenv').config()
 
 const app = express()
