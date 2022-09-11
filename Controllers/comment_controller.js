@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const Comment = require('../models/comment')
-const User = require('../models/user')
+const Comment = require('../Models/comment')
+const User = require('../Models/user')
 
 //INDEX
 router.get('/', async (req, res) => {

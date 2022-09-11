@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const User = require('../models/user')
-const Comment = require('../models/comment')
+const User = require('../Models/user')
+const Comment = require('../Models/comment')
 
 router.get('/', async (req, res) => {
     try {
@@ -77,4 +77,6 @@ router.put('/add/comment/:id', async(req, res) => {
     }
 })
 
+
+router.get('/comment:id/edit')
 module.exports = router
