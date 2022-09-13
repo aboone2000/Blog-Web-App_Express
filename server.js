@@ -14,7 +14,7 @@ app.use('/comment', commentRoutes)
 
 //404 Page
 app.get('*', (req,res) => {
-    res.send('404')
+    res.redirect('error404')
 })
 
 // db connection
